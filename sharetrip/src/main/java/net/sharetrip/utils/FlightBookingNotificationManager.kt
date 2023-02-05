@@ -46,5 +46,4 @@ object FlightBookingNotificationManager {
         onetimeWork.setInputData(data.build())
         context.let { WorkManager.getInstance(it).enqueue(onetimeWork.build()) }
     }
-
 }

@@ -12,7 +12,6 @@ import net.sharetrip.model.DashboardActivityApiCallingKey
 import net.sharetrip.model.FcmTokenModel
 import net.sharetrip.network.MainApiService
 import net.sharetrip.shared.model.user.User
-import net.sharetrip.shared.utils.analytics.AnalyticsProvider
 import net.sharetrip.utils.SingleLiveEvent
 
 class DashboardActivityViewModel(
@@ -20,13 +19,9 @@ class DashboardActivityViewModel(
     private val sharedPrefsHelper: SharedPrefsHelper
 ) :
     BaseOperationalViewModel() {
-    val navigateToOnBoarding = SingleLiveEvent<Any>()
-    val navigateToProfile = SingleLiveEvent<Any>()
     val navigateToRegistration = SingleLiveEvent<Any>()
     val guestUserInfo = SingleLiveEvent<Triple<String, Int, String>>()
     val userInfo = MutableLiveData<User>()
-
-    val homePageEventManager = AnalyticsProvider.homePageEventManager(AnalyticsProvider.getFirebaseAnalytics())
 
     override fun onSuccessResponse(operationTag: String, data: BaseResponse.Success<Any>) {
         when (operationTag) {
@@ -64,29 +59,6 @@ class DashboardActivityViewModel(
                     else -> {}
                 }
             }
-        }
-    }
-
-    fun updateUserStatus() {
-        if (sharedPrefsHelper[PrefKey.IS_LOGIN, false]) {
-            updateUserInfo()
-        } else {
-            updateGuestInfo()
-        }
-    }
-
-    private fun updateGuestInfo() {
-        guestUserInfo.value = Triple("No Name", View.GONE, "0")
-    }
-
-    private fun updateUserInfo() {
-        val token = sharedPrefsHelper[PrefKey.ACCESS_TOKEN, ""]
-        if (token == "") return
-
-        executeSuspendedCodeBlock(DashboardActivityApiCallingKey.UserInformation.name) {
-            apiService.getUserInformation(
-                token
-            )
         }
     }
 
@@ -133,15 +105,4 @@ class DashboardActivityViewModel(
         }
     }
 
-    fun checkBoardingStatus(valueFromNotification: Int, notificationData: String?) {
-        if (!sharedPrefsHelper[PrefKey.IS_ON_BOARDING_ONCE, false]) {
-            navigateToOnBoarding.call()
-        } else {
-            if (valueFromNotification == 1) {
-                sharedPrefsHelper.put(PrefKey.NOTIFICATION_DETAIL, notificationData)
-                homePageEventManager.clickOnOpenNotification()
-                navigateToProfile.call()
-            }
-        }
-    }
 }
