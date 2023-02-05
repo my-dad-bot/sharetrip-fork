@@ -8,7 +8,6 @@ import androidx.multidex.MultiDexApplication
 import com.facebook.stetho.Stetho
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.sharetrip.base.utils.ShareTripAppConstants
 
 class ShareTripApplication : MultiDexApplication() {
 
@@ -27,7 +26,7 @@ class ShareTripApplication : MultiDexApplication() {
             val descriptionText = getString(R.string.local_notification_channel_description)
             val importance = NotificationManager.IMPORTANCE_HIGH
             val mChannel =
-                NotificationChannel(ShareTripAppConstants.LOCAL_NOTIFICATION, name, importance)
+                NotificationChannel("local_channel", name, importance)
             mChannel.description = descriptionText
             val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(mChannel)

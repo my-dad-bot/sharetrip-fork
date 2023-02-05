@@ -17,9 +17,6 @@ import com.bumptech.glide.request.transition.Transition
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import net.sharetrip.R
-import com.sharetrip.base.data.PrefKey.FIREBASE_DEVICE_TOKEN
-import com.sharetrip.base.data.SharedPrefsHelper
-import com.sharetrip.base.utils.ShareTripAppConstants.NOTIFICATION_DATA
 import net.sharetrip.view.dashboard.DashboardActivity
 import java.util.*
 
@@ -158,7 +155,7 @@ class ShareTripMessagingService : FirebaseMessagingService() {
     }
 
     private fun storeTokenForServer(token: String) {
-        val sharedPrefsHelper = SharedPrefsHelper(application)
-        sharedPrefsHelper.put(FIREBASE_DEVICE_TOKEN, token)
+        //val sharedPrefsHelper = SharedPrefsHelper(application)
+        //sharedPrefsHelper.put(FIREBASE_DEVICE_TOKEN, token)
     }
 }
