@@ -54,8 +54,8 @@ android {
 dependencies {
     implementation(project(":base"))
     implementation(project(":payment"))
-    implementation(project(":tracker"))
-    implementation(project(":signup"))
+    //implementation(project(":tracker"))
+    //implementation(project(":signup"))
 
     project.retrofit()
     project.core()
