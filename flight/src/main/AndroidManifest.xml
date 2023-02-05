@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.sharetrip.flight">
+
+    <application>
+
+        <activity
+            android:name=".booking.FlightBookingActivity"
+            android:exported="true"
+            android:label="@string/title_activity_flights"
+            android:launchMode="singleTop"
+            android:screenOrientation="nosensor"
+            android:theme="@style/FlightTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="sharetrip.net"
+                    android:pathPrefix="/flight"
+                    android:scheme="https" />
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".history.FlightHistoryActivity"
+            android:exported="false"
+            android:label="@string/title_activity_flight_history"
+            android:launchMode="singleTop"
+            android:screenOrientation="nosensor"
+            android:theme="@style/FlightTheme.NoActionBar"/>
+
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+    </application>
+
+</manifest>

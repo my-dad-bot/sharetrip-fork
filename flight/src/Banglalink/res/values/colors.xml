@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#1CAF68</color>
+    <color name="colorPrimaryAlpha">#FFFFFFFF</color>
+    <color name="flight_landing_body">@color/colorPrimary</color>
+
+    <color name="gray_200">#f2f3f4</color>
+    <color name="pale_grey">#efeff4</color>
+    <color name="amber">#f57f17</color>
+    <color name="surface_color">#fafafa</color>
+    <color name="silver_two">#d1d1d6</color>
+    <color name="primary_main">#1CAF68</color>
+    <color name="ripple_custom_gray">#c7c7cc</color>
+    <color name="steel">#8e8e93</color>
+    <color name="egg_shell">#fff9c4</color>
+    <color name="dark_main">#000000</color>
+    <color name="mid_green">#43a046</color>
+    <color name="mango">#f9a825</color>
+    <color name="red_800">#ff3326</color>
+    <color name="blue_gray">#8e8e93</color>
+    <color name="indigo">@color/colorPrimary</color>
+    <color name="greyish_brown">#4c4c4c</color>
+    <color name="windowBackground">@android:color/white</color>
+    <color name="surface">#f5f5f5</color>
+    <color name="gray_800">#4c4c4c</color>
+    <color name="gray_900">#99000000</color>
+    <color name="gray">#efefef</color>
+    <color name="gray_dark">#de000000</color>
+    <color name="bright_orange">#ff5a00</color>
+    <color name="transparent_gray">#C9000000</color>
+    <color name="amberAlpha">#ffcc00</color>
+    <color name="greyish_brown_two">#434343</color>
+    <color name="history_text">@color/primary_main</color>
+    <color name="error_color">#d32f2f</color>
+    <color name="white_two">#fafafa</color>
+    <color name="white_three">#fbfbfb</color>
+    <color name="notice_banner">#7afff9c4</color>
+    <color name="cyan">#aff0ff</color>
+    <color name="history_segment_title">@color/colorPrimary</color>
+    <color name="pale_grey_two">#e5e5ea</color>
+    <color name="black_54">#747474</color>
+
+</resources>

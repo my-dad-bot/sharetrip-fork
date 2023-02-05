@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_navigation"
+    app:startDestination="@id/contentFragment">
+
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="net.sharetrip.flight.profile.view.content.ContentFragment"
+        tools:layout="@layout/fragment_content_flight">
+        <argument
+            android:name="ARG_FAQ_NUMBER"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>
