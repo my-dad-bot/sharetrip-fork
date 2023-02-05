@@ -63,7 +63,7 @@ android {
 
 dependencies {
     implementation(project(":flight"))
-    implementation(project(":shared"))
+    //implementation(project(":shared"))
 
     project.retrofit()
     project.core()
