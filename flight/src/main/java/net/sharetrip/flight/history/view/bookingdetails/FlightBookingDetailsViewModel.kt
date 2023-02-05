@@ -6,10 +6,7 @@ import com.sharetrip.base.event.Event
 import com.sharetrip.base.network.model.BaseResponse
 import com.sharetrip.base.network.model.ErrorType
 import com.sharetrip.base.network.model.RestResponse
-import net.sharetrip.flight.shared.utils.ARG_PAYMENT_URL
 import net.sharetrip.flight.shared.utils.DateUtil
-import net.sharetrip.flight.shared.utils.SERVICE_TYPE
-import net.sharetrip.flight.shared.utils.SERVICE_TYPE_FLIGHT
 import com.sharetrip.base.viewmodel.BaseOperationalViewModel
 import net.sharetrip.flight.history.model.ApiCallingKey
 import net.sharetrip.flight.history.model.FlightHistoryResponse
@@ -20,6 +17,9 @@ import net.sharetrip.flight.network.FlightHistoryApiService
 import net.sharetrip.flight.utils.GOTO_PAYMENT
 import net.sharetrip.flight.utils.YOUR_BOOKING_HAS_BEEN_SUCCESSFULLY_CANCELLED
 import net.sharetrip.flight.utils.YOUR_VOUCHER_REQUEST_HAS_BEEN_SUCCESSFULLY_SENT
+import net.sharetrip.payment.ARG_PAYMENT_URL
+import net.sharetrip.payment.SERVICE_TYPE
+import net.sharetrip.payment.SERVICE_TYPE_FLIGHT
 import java.text.ParseException
 
 class FlightBookingDetailsViewModel(

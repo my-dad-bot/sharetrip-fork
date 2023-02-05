@@ -1,3 +1,4 @@
+/*
 package com.sharetrip.base
 
 import android.content.Context
@@ -47,3 +48,4 @@ open class BaseApplication : MultiDexApplication() {
         }
     }
 }
+*/

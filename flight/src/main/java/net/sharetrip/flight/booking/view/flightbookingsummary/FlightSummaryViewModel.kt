@@ -46,7 +46,6 @@ import net.sharetrip.flight.booking.model.repository.localdatasource.CLICK_TO_AG
 import net.sharetrip.flight.booking.model.repository.localdatasource.COUPON_ADDED_SUCCESSFULLY
 import net.sharetrip.flight.booking.model.repository.localdatasource.PLEASE_PROVIDE_A_VALID_PHONE_NUMBER
 import net.sharetrip.flight.booking.model.repository.localdatasource.SOMETHING_WENT_WRONG
-import net.sharetrip.flight.history.model.localdatasource.UIMessageData
 import net.sharetrip.flight.network.DataManager
 import net.sharetrip.flight.network.PaymentGatewayType
 import net.sharetrip.flight.shared.utils.*
@@ -55,6 +54,9 @@ import net.sharetrip.flight.utils.GOTO_FLIGHT_DASHBOARD
 import net.sharetrip.flight.utils.GOTO_PAYMENT
 import net.sharetrip.flight.utils.GOTO_PRIVACY
 import net.sharetrip.flight.utils.GOTO_TERMS
+import net.sharetrip.payment.ARG_PAYMENT_URL
+import net.sharetrip.payment.SERVICE_TYPE
+import net.sharetrip.payment.SERVICE_TYPE_FLIGHT
 import net.sharetrip.payment.model.PaymentMethod
 import java.text.NumberFormat
 import java.text.ParseException

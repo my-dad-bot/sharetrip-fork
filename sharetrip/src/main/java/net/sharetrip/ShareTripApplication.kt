@@ -4,13 +4,13 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.multidex.MultiDexApplication
 import com.facebook.stetho.Stetho
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.sharetrip.base.BaseApplication
 import com.sharetrip.base.utils.ShareTripAppConstants
 
-class ShareTripApplication : BaseApplication() {
+class ShareTripApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()

@@ -25,6 +25,8 @@ fun Project.retrofit() {
         add("implementation", Libs.retrofit)
         add("implementation", Libs.converter_moshi)
         add("implementation", Libs.logging_interceptor)
+        add("implementation", Libs.stetho)
+        add("implementation", Libs.stetho_okhttp3)
     }
 }
 

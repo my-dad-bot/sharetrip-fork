@@ -53,9 +53,6 @@ object Libs {
 
     const val shimmer: String = "com.facebook.shimmer:shimmer:0.5.0"
 
-    const val stetho: String = "com.facebook.stetho:stetho:1.5.0"
-    const val stetho_okhttp3: String = "com.facebook.stetho:stetho-okhttp3:1.5.0"
-
     const val glide: String = "com.github.bumptech.glide:glide:4.14.2"
     const val glide_compiler = "com.github.bumptech.glide:compiler:4.14.2"
 
@@ -105,6 +102,8 @@ object Libs {
     const val retrofit: String = "com.squareup.retrofit2:retrofit:2.9.0"
     const val converter_moshi: String = "com.squareup.retrofit2:converter-moshi:2.9.0"
     const val logging_interceptor: String = "com.squareup.okhttp3:logging-interceptor:4.10.0"
+    const val stetho: String = "com.facebook.stetho:stetho:1.5.0"
+    const val stetho_okhttp3: String = "com.facebook.stetho:stetho-okhttp3:1.5.0"
 
     const val android_times_square: String = "com.squareup:android-times-square:1.7.10"
 

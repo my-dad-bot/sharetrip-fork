@@ -14,16 +14,13 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.sharetrip.base.data.PrefKey
 import com.sharetrip.base.data.SharedPrefsHelper
+import com.sharetrip.base.utils.navigateSafe
+import com.sharetrip.base.view.BaseFragment
 import net.sharetrip.payment.model.BookingResponse
-import net.sharetrip.shared.utils.analytics.AnalyticsProvider
-import net.sharetrip.shared.view.BaseFragment
 import com.sharetrip.base.viewmodel.BaseViewModel
+import net.sharetrip.payment.*
 import net.sharetrip.payment.databinding.FragmentPaymentBinding
 import net.sharetrip.payment.model.PaymentUrl
-import net.sharetrip.payment.R
-import net.sharetrip.payment.convertPaymentUrlList
-import net.sharetrip.payment.convertToUrlModel
-import net.sharetrip.shared.utils.*
 
 class PaymentFragment : BaseFragment<FragmentPaymentBinding>() {
     private var bookingResponseLinks = ""
@@ -40,8 +37,6 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>() {
     private val paymentSuccessUrlStg = "https://stg.sharetrip.net/profile?route=bookings"
     private val paymentFailUrlStg = "https://stg.sharetrip.net/?type=failed"
 
-    private val paymentEventManager =
-        AnalyticsProvider.paymentEventManager(AnalyticsProvider.getFirebaseAnalytics())
 
     override fun layoutId(): Int = R.layout.fragment_payment
 
@@ -65,21 +60,21 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
                 when (url) {
                     serviceSuccessUrl -> {
-                        sentPaymentSuccessEvent()
+                        //sentPaymentSuccessEvent()
                         showToast(PAYMENT_CONFIRM_MSG)
                         findNavController().navigateSafe(R.id.action_paymentMethodFragment_to_paymentSuccessFragment)
                         return true
                     }
 
                     paymentSuccessUrl, paymentSuccessUrlStg -> {
-                        sentPaymentSuccessEvent()
+                        //sentPaymentSuccessEvent()
                         showToast(PAYMENT_CONFIRM_MSG)
                         findNavController().navigateSafe(R.id.action_paymentMethodFragment_to_paymentSuccessFragment)
                         return true
                     }
 
                     serviceFailureUrl -> {
-                        sentPaymentFailedEvent()
+                        //sentPaymentFailedEvent()
 
                         try {
                             findNavController().navigateSafe(R.id.action_paymentMethodFragment_to_paymentFailFragment)
@@ -92,7 +87,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>() {
                     }
 
                     paymentFailUrl, paymentFailUrlStg -> {
-                        sentPaymentFailedEvent()
+                        //sentPaymentFailedEvent()
 
                         try {
                             findNavController().navigateSafe(R.id.action_paymentMethodFragment_to_paymentFailFragment)
@@ -200,7 +195,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>() {
         }
     }
 
-    private fun sentPaymentSuccessEvent() {
+/*    private fun sentPaymentSuccessEvent() {
         when (serviceType) {
             SERVICE_TYPE_FLIGHT -> paymentEventManager.paymentCompleteFlight()
 
@@ -222,7 +217,7 @@ class PaymentFragment : BaseFragment<FragmentPaymentBinding>() {
 
             SERVICE_TYPE_VISA -> paymentEventManager.paymentFailedVisa()
         }
-    }
+    }*/
 
     private fun getPaymentURL() {
         val urls = sharedPrefsHelper[PrefKey.PAYMENT_URLS, ""].convertPaymentUrlList()

@@ -22,10 +22,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-        debug {
-            manifestPlaceholders["enableCrashReporting"] = "false"
-            isMinifyEnabled = false
-        }
     }
 
     dataBinding {
@@ -44,14 +40,9 @@ android {
 
 dependencies {
     implementation(project(":base"))
-    implementation(project(":shared"))
 
-    project.retrofit()
     project.core()
-    project.coroutines()
     project.lifecycle()
     project.navigation()
-    project.firebase()
-    project.converter()
-    project.mixed()
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 }
