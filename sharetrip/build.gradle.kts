@@ -63,7 +63,7 @@ android {
 
 dependencies {
     implementation(project(":base"))
-    //implementation(project(":shared"))
+    implementation(project(":shared"))
     //implementation(project(":bus"))
     implementation(project(":flight"))
     //implementation(project(":holiday"))
@@ -73,7 +73,7 @@ dependencies {
     //implementation(project(":signup"))
     //implementation(project(":wheel"))
     //implementation(project(":tracker"))
-    implementation(project(":profile"))
+    //implementation(project(":profile"))
     implementation("io.socket:socket.io-client:1.0.0") {
         exclude(
             group = "org.json",
