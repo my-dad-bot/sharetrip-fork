@@ -26,13 +26,11 @@ import com.sharetrip.base.data.PrefKey.RETURN_DATE
 import com.sharetrip.base.data.PrefKey.USER_PROFILE
 import com.sharetrip.base.data.SharedPrefsHelper
 import com.sharetrip.base.event.EventObserver
-import net.sharetrip.shared.model.GuestLoginListener
-import net.sharetrip.shared.model.GuestPopUpData
+
 import com.sharetrip.base.network.NetworkUtil
 import com.sharetrip.base.utils.ShareTripAppConstants
-import net.sharetrip.shared.utils.getUserInfo
-import net.sharetrip.shared.view.BaseFragment
-import net.sharetrip.shared.view.adapter.ItemClickSupport
+import com.sharetrip.base.view.BaseFragment
+
 import com.sharetrip.base.viewmodel.BaseViewModel
 import im.crisp.client.ChatActivity
 import im.crisp.client.Crisp
@@ -41,17 +39,12 @@ import net.sharetrip.databinding.FragmentHomeBinding
 import net.sharetrip.databinding.ItemDashboardHeaderBinding
 import net.sharetrip.flight.booking.FlightBookingActivity
 import net.sharetrip.network.MainDataManager
-import net.sharetrip.profile.ProfileActivity
-import net.sharetrip.profile.model.ProfileAction
-import net.sharetrip.signup.view.RegistrationActivity
-import net.sharetrip.tracker.FlightTrackerActivity
-import net.sharetrip.tracker.FlightTrackerActivity.Companion.FLIGHT_TRACKER_ACTION
 import net.sharetrip.utils.FlightBookingNotificationManager
 import net.sharetrip.view.dashboard.DashboardActivity
 import net.sharetrip.view.home.adapter.HolidayAdapter
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     val viewModel by lazy {
         HomeVMFactory(
             MainDataManager.mainApiService,
@@ -95,21 +88,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
     private var loading = true
     private var height = 0
 
-    private val popupDataForTrivia: GuestPopUpData by lazy {
-        GuestPopUpData(
-            R.string.trivia_title,
-            R.string.trivia_body,
-            R.drawable.ic_st_trivia_color, this
-        )
-    }
-    private val popupData: GuestPopUpData by lazy {
-        GuestPopUpData(
-            R.string.trip_coin_title,
-            R.string.trip_coin_body,
-            R.drawable.ic_onboarding_200dp, this
-        )
-    }
-
     override fun layoutId(): Int = R.layout.fragment_home
 
     override fun getViewModel(): BaseViewModel = viewModel
@@ -142,29 +120,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
             holidayAdapter.update(it)
         }*/
 
-        ItemClickSupport.addTo(bindingView.holidays)
-            .setOnItemClickListener { _, position, _ ->
-                if (position <= 0) {
-                    return@setOnItemClickListener
-                }
-                if (NetworkUtil.hasNetwork(bindingView.holidays.context)) {
-                    /*val intent = Intent(context, HolidayBookingActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                    intent.putExtra(
-                        HOLIDAY_NAVIGATION_ACTION,
-                        HolidayNavigationActions.VISIT_HOLIDAY_DETAILS
-                    )
-                    intent.putExtra(
-                        ARG_HOLIDAY_PRODUCT_CODE,
-                        viewModel.holidays[position - 1].productCode!!
-                    )
-
-                    homeActionViewModel.homePageEventManager.selectHolidayFromHomeScreen()
-                    startActivity(intent)*/
-                } else
-                    Toast.makeText(bindingView.holidays.context, "No Internet", Toast.LENGTH_LONG)
-                        .show()
-            }
 
         bindingView.holidays.addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
@@ -255,26 +210,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
             }*/
         })
 
-        homeActionViewModel.gotoFlightTracker.observe(viewLifecycleOwner, EventObserver {
-            if (it) {
-                val intent = Intent(context, FlightTrackerActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                intent.putExtra(
-                    FLIGHT_TRACKER_ACTION,
-                    FlightTrackerActivity.Companion.FlightTrackerAction.FLIGHT_TRACKER
-                )
-                startActivity(intent)
-            }
-        })
-
-        bindingView.appBarLayout.userInfoLayout.setOnClickListener {
-            homeActionViewModel.homePageEventManager.clickOnToolbarProfileLink()
-            val intent = Intent(context, ProfileActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            intent.putExtra(ProfileActivity.ARG_PROFILE_ACTION, ProfileAction.ARG_PROFILE_EDIT)
-            startActivity(intent)
-        }
-
         homeActionViewModel.showToastMessage.observe(viewLifecycleOwner, EventObserver {
             Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
         })
@@ -285,21 +220,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
     }
 
     private fun initCrispChat() {
-        if (sharedPrefsHelper[IS_LOGIN, false]) {
-            val userJson = sharedPrefsHelper[USER_PROFILE, ""]
-            val userInfo = if (userJson.isNotEmpty()) userJson.getUserInfo() else null
-            userInfo?.let {
-                Crisp.resetChatSession(requireContext())
-                Crisp.setUserEmail(userInfo.email)
-                Crisp.setUserNickname(userInfo.firstName + " " + userInfo.lastName)
-                Crisp.setUserPhone(userInfo.mobileNumber)
-                Crisp.setUserAvatar(userInfo.avatar)
-                Crisp.setTokenID(userInfo.username)
-            }
-        }
-
-        val intent = Intent(requireContext(), ChatActivity::class.java)
-        startActivity(intent)
 
     }
 
@@ -348,20 +268,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
             }
             dialog.show()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (activity as DashboardActivity).userData.observe(this) {
-            (activity as DashboardActivity).setUserData(it, bindingView.appBarLayout)
-        }
-    }
-
-    override fun onClickLogin() {
-        val intent = Intent(requireContext(), RegistrationActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        viewModel.requestCode = signup_request_code
-        registerResult.launch(intent)
     }
 
     private companion object {

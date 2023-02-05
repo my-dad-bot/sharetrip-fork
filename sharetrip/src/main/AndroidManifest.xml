@@ -39,30 +39,6 @@
             </intent-filter>
         </activity>
 
-
-        <activity
-            android:name=".signup.view.RegistrationActivity"
-            android:exported="false"
-            android:label="@string/signup"
-            android:launchMode="singleTop"
-            android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateHidden" />
-
-        <activity
-            android:name=".tracker.FlightTrackerActivity"
-            android:exported="false"
-            android:launchMode="singleTop"
-            android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".profile.ProfileActivity"
-            android:exported="false"
-            android:launchMode="singleTop"
-            android:screenOrientation="nosensor"
-            android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" />

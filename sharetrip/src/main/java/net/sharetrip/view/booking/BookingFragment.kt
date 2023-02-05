@@ -4,13 +4,12 @@ import android.content.Intent
 import com.sharetrip.base.data.PrefKey
 import com.sharetrip.base.data.SharedPrefsHelper
 import com.sharetrip.base.event.EventObserver
-import net.sharetrip.shared.view.BaseFragment
+import com.sharetrip.base.view.BaseFragment
 import com.sharetrip.base.viewmodel.BaseViewModel
 import net.sharetrip.R
 import net.sharetrip.databinding.FragmentBookingBinding
 import net.sharetrip.flight.history.FlightHistoryActivity
 import net.sharetrip.network.MainDataManager
-import net.sharetrip.signup.view.RegistrationActivity
 import net.sharetrip.view.dashboard.DashboardActivity
 import java.text.NumberFormat
 import java.util.*
@@ -69,14 +68,8 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>() {
         }
 
         viewModel.navigateToLogin.observe(viewLifecycleOwner, EventObserver {
-            val intent = Intent(requireContext(), RegistrationActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
-        })
 
-        (activity as DashboardActivity).userData.observe(this) {
-            viewModel.checkLoginInformation()
-        }
+        })
 
         bindingView.textViewTripCoin.text =
             NumberFormat.getNumberInstance(Locale.US).format(points.toInt())
