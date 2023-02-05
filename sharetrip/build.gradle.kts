@@ -63,16 +63,16 @@ android {
 
 dependencies {
     implementation(project(":base"))
-    implementation(project(":shared"))
+    //implementation(project(":shared"))
     //implementation(project(":bus"))
     implementation(project(":flight"))
     //implementation(project(":holiday"))
     //implementation(project(":hotel"))
     //implementation(project(":visa"))
     //implementation project(path: ':tour')
-    implementation(project(":signup"))
+    //implementation(project(":signup"))
     //implementation(project(":wheel"))
-    implementation(project(":tracker"))
+    //implementation(project(":tracker"))
     implementation(project(":profile"))
     implementation("io.socket:socket.io-client:1.0.0") {
         exclude(

@@ -19,9 +19,7 @@ import com.google.firebase.messaging.RemoteMessage
 import net.sharetrip.R
 import com.sharetrip.base.data.PrefKey.FIREBASE_DEVICE_TOKEN
 import com.sharetrip.base.data.SharedPrefsHelper
-import net.sharetrip.shared.model.UserNotification
 import com.sharetrip.base.utils.ShareTripAppConstants.NOTIFICATION_DATA
-import net.sharetrip.shared.utils.convertString
 import net.sharetrip.view.dashboard.DashboardActivity
 import java.util.*
 
@@ -108,12 +106,12 @@ class ShareTripMessagingService : FirebaseMessagingService() {
         mBuilder.setAutoCancel(true)
         val intent = Intent(this, DashboardActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
-        val userNotification = UserNotification(
+        /*val userNotification = UserNotification(
             "",
             messageBody, path!!,
             "ANDROID", "", publishDate, 1236544, messageTitle, true
         )
-        intent.putExtra(NOTIFICATION_DATA, userNotification.convertString())
+        intent.putExtra(NOTIFICATION_DATA, userNotification.convertString())*/
 
         val stackBuilder = TaskStackBuilder.create(this)
         stackBuilder.addNextIntent(intent)
