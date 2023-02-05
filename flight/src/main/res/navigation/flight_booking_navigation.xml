@@ -54,7 +54,7 @@
         tools:layout="@layout/fragment_single_calendar_flight">
         <argument
             android:name="ARG_CALENDER_DATA"
-            app:argType="net.sharetrip.shared.model.CalenderData" />
+            app:argType="net.sharetrip.flight.shared.model.CalenderData" />
     </fragment>
 
     <fragment
@@ -80,7 +80,7 @@
         tools:layout="@layout/fragment_range_calendar_flight">
         <argument
             android:name="ARG_CALENDER_DATA"
-            app:argType="net.sharetrip.shared.model.CalenderData" />
+            app:argType="net.sharetrip.flight.shared.model.CalenderData" />
     </fragment>
 
     <fragment
