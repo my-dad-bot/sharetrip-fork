@@ -1,12 +1,15 @@
+/*
 package net.sharetrip.flight.shared.utils.analytics
 
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 
+*/
 /*
 todo ->  Please check if Analytics is needed or creates problem for library publication
- */
+ *//*
+
 
 object AnalyticsProvider {
 
@@ -20,4 +23,4 @@ object AnalyticsProvider {
     fun flightEventManager(firebaseAnalytics: FirebaseAnalytics) =
         FlightEventManager.Builder().setFirebaseAnalytics(firebaseAnalytics).build()
 
-}
+}*/

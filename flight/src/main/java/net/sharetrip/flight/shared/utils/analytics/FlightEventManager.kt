@@ -1,10 +1,13 @@
+/*
 package net.sharetrip.flight.shared.utils.analytics
 
 import com.google.firebase.analytics.FirebaseAnalytics
 
+*/
 /*
 todo ->  Please check if Analytics is needed or creates problem for library publication
- */
+ *//*
+
 
 class FlightEventManager private constructor(private var analyticsManager: DataAnalyticsManager) {
 
@@ -96,10 +99,12 @@ class FlightEventManager private constructor(private var analyticsManager: DataA
         //private var mixPanelAPI: MixpanelAPI? = null
         private var firebaseAnalytics: FirebaseAnalytics? = null
 
-        /*fun setMixPanelAPI(mixPanelAPI: MixpanelAPI): Builder {
+        */
+/*fun setMixPanelAPI(mixPanelAPI: MixpanelAPI): Builder {
             this.mixPanelAPI = mixPanelAPI
             return this
-        }*/
+        }*//*
+
         fun setFirebaseAnalytics(firebaseAnalytics: FirebaseAnalytics): Builder {
             this.firebaseAnalytics = firebaseAnalytics
             return this
@@ -137,3 +142,4 @@ class FlightEventManager private constructor(private var analyticsManager: DataA
         private const val clickRefundableB2c = "Click_Refundable_B2c"
     }
 }
+*/

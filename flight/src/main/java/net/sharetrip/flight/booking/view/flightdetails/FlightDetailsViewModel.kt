@@ -46,7 +46,7 @@ import net.sharetrip.flight.shared.utils.UtilText
 import net.sharetrip.flight.shared.utils.UtilText.couponSubTitle
 import net.sharetrip.flight.shared.utils.UtilText.couponTitle
 import net.sharetrip.flight.shared.utils.UtilText.enterPhone
-import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
+//import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
 import net.sharetrip.flight.shared.utils.isPhoneNumberValid
 import java.text.NumberFormat
 import java.util.*
@@ -70,8 +70,8 @@ class FlightDetailsViewModel(
     private lateinit var currentCouponRequest: FlightCouponRequest
     private val convenienceVatFlag = false
     private var baggageType: BaggageType = BaggageType.Unknown
-    private val flightEventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val flightEventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
     private lateinit var flightDetails: FlightDetailsResponse
 
     var couponResponse = CouponResponse()
@@ -770,7 +770,7 @@ class FlightDetailsViewModel(
                         flightSearch.travellerBaggageCodes = travellerBaggageCodeList
                     }
                     flightSearch.totalBaggageCost = totalBaggageCharge.get()!!.toDouble()
-                    flightEventManager.clickOnBookNow()
+                    //flightEventManager.clickOnBookNow()
                     if (sharedPrefsHelper[PrefKey.IS_LOGIN, false]) {
                         gotoCheckout.value = Event(true)
                     } else {
@@ -782,17 +782,17 @@ class FlightDetailsViewModel(
     }
 
     fun onFareDetailsButtonClicked() {
-        flightEventManager.flightHistory()
+        //flightEventManager.flightHistory()
         ruleCase.value = Event(2)
     }
 
     fun onBaggageButtonClicked() {
-        flightEventManager.clickOnFlightBaggage()
+        //flightEventManager.clickOnFlightBaggage()
         ruleCase.value = Event(0)
     }
 
     fun onAirFareRuleButtonClicked() {
-        flightEventManager.clickOnAirFareRules()
+        //flightEventManager.clickOnAirFareRules()
         ruleCase.value = Event(1)
     }
 
@@ -857,7 +857,7 @@ class FlightDetailsViewModel(
         if (view is RadioButton) {
             when (view.id) {
                 R.id.redeem_check_box -> {
-                    flightEventManager.clickOnRedeemTripCoinInFlight()
+                    //flightEventManager.clickOnRedeemTripCoinInFlight()
                     isCardSelected.set(false)
                     isRedeemSelected.set(true)
                     isCouponSelected.set(false)

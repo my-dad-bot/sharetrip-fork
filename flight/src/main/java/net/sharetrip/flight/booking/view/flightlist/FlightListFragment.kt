@@ -20,7 +20,7 @@ import com.sharetrip.base.data.PrefKey
 import com.sharetrip.base.data.SharedPrefsHelper
 import com.sharetrip.base.event.EventObserver
 import net.sharetrip.flight.shared.utils.DateUtil
-import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
+//import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
 import net.sharetrip.flight.shared.utils.navigateSafe
 import net.sharetrip.flight.shared.view.BaseFragment
 import com.sharetrip.base.viewmodel.BaseViewModel
@@ -57,8 +57,8 @@ class FlightListFragment : BaseFragment<FragmentFlightListBinding>(), AirlinesLi
     private var isFirstTime = true
     private var isFirstTimeAirline = true
     private var isFirstPage = false
-    private val flightEventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val flightEventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
 
     private val viewModel by lazy {
         ViewModelProvider(
@@ -305,11 +305,11 @@ class FlightListFragment : BaseFragment<FragmentFlightListBinding>(), AirlinesLi
     }
 
     private fun handleFlightItemSelect(flights: Flights) {
-        when (flights.deal) {
+        /*when (flights.deal) {
             "Preferred" -> flightEventManager.clickOnPreferredAirline()
             "Best Deal" -> flightEventManager.clickOnBestDeals()
             else -> flightEventManager.clickOnFlightDetails()
-        }
+        }*/
 
         flightSearch.sequence = flights.sequence
         val bundle = Bundle()

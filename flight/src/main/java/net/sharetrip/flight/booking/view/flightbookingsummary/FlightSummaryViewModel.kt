@@ -29,7 +29,7 @@ import net.sharetrip.flight.shared.utils.UtilText.couponTitle
 import net.sharetrip.flight.shared.utils.UtilText.enterOtp
 import net.sharetrip.flight.shared.utils.UtilText.enterPhone
 import net.sharetrip.flight.shared.utils.UtilText.otpResend
-import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
+//import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
 import com.sharetrip.base.viewmodel.BaseOperationalViewModel
 import net.sharetrip.flight.R
 import net.sharetrip.flight.booking.model.*
@@ -72,8 +72,8 @@ class FlightSummaryViewModel(
     private val sharedPrefsHelper: SharedPrefsHelper
 ) : BaseOperationalViewModel() {
     private val convenienceVatFlag = false
-    private val flightEventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val flightEventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
     private var flag: Boolean = false
     private var isRedeemCodeActivated: Boolean = false
     private var priceBreakDownData: PriceBreakdown? = null
@@ -192,7 +192,7 @@ class FlightSummaryViewModel(
     }
 
     init {
-        flightEventManager.initialCheckoutFlight()
+        //flightEventManager.initialCheckoutFlight()
         userTripCoin = sharedPrefsHelper[USER_TRIP_COIN, "0"].filter { it in '0'..'9' }.toInt()
 
         val listType = object : TypeToken<List<RemoteDiscountModel>>() {}.type

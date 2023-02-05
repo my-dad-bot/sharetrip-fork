@@ -9,7 +9,7 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import com.sharetrip.base.event.Event
-import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
+//import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
 import com.sharetrip.base.viewmodel.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
@@ -29,8 +29,8 @@ class FlightListViewModel(
     private val repository: FlightListRepository
 ) : BaseViewModel() {
     private val filterData = MutableStateFlow(FilterData())
-    private val eventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val eventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
     val sortingObserver = MutableLiveData<SortingType>()
     val isShowSort = ObservableBoolean(false)
     var flightCount = 0
@@ -71,7 +71,7 @@ class FlightListViewModel(
     }
 
     fun onClickFilter() {
-        eventManager.clickOnFlightFilter()
+        //eventManager.clickOnFlightFilter()
         filter = repository.flightPagingSource.value!!.flightFilter()
         filter?.refundableCustom = getRefundable()
         if (filter != null) {
@@ -80,7 +80,7 @@ class FlightListViewModel(
     }
 
     fun onSortingBtnClick(view: View) {
-        eventManager.clickOnFlightSort()
+        //eventManager.clickOnFlightSort()
         if (view is AppCompatTextView) {
             when (view.id) {
                 R.id.btnCheapest -> sortingObserver.value = SortingType.CHEAPEST

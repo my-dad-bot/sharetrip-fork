@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sharetrip.base.event.Event
 import net.sharetrip.flight.shared.model.CalenderData
-import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
+//import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
 import com.sharetrip.base.viewmodel.BaseViewModel
 import net.sharetrip.flight.booking.model.ChildrenDOB
 import net.sharetrip.flight.booking.model.FlightSearch
@@ -24,8 +24,8 @@ class MultiCityViewModel(
     private val searchQueryForDate: String
 ) : BaseViewModel() {
     private var multiCityTripSearchModel = FlightSearch()
-    private val flightEventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val flightEventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
     private val _navigateToTravelAdvice = MutableLiveData<Event<Boolean>>()
     private var travellers: TravellersInfo
     private var startDateInMillisecond = 0L
@@ -108,7 +108,7 @@ class MultiCityViewModel(
     }
 
     fun onSearchFlightButtonClicked() {
-        flightEventManager.searchMultiCity()
+        //flightEventManager.searchMultiCity()
         val dataSet = multiCityTripSearchModel.multiCityModels
         var error = false
         for (model in dataSet) {

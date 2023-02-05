@@ -20,7 +20,7 @@ import net.sharetrip.flight.profile.view.content.ContentFragment.Companion.ENTER
 import net.sharetrip.flight.profile.view.content.ContentFragment.Companion.INVALID_PASSPORT
 import net.sharetrip.flight.shared.model.PassengerTypeTitle
 import net.sharetrip.flight.shared.utils.*
-import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
+//import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -90,8 +90,8 @@ class PassengerViewModel(
     val gotoNationality = MutableLiveData<Event<Boolean>>()
     val goToImageConfirmation = MutableLiveData<Event<String>>()
     private var tag = ""
-    private val flightEventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val flightEventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
     var isPassportNumberValid = MutableLiveData<Boolean>()
     var isPassportExpiryDateValid = MutableLiveData<Boolean>()
 
@@ -417,7 +417,7 @@ class PassengerViewModel(
     }
 
     fun setQuickPickerData(position: Int) {
-        flightEventManager.selectPassengerFromQuickPick()
+        //flightEventManager.selectPassengerFromQuickPick()
         val info = passengerList.value?.get(position)
         val guest = ItemTraveler()
         guest.titleName = info?.titleName
@@ -493,7 +493,7 @@ class PassengerViewModel(
     }
 
     fun onClickPassportCopy() {
-        flightEventManager.uploadPassportCopy()
+        //flightEventManager.uploadPassportCopy()
         if (passportProgress.value == 100) {
             imageUploadChoiceOld.value = Event("passport")
         } else {
@@ -532,7 +532,7 @@ class PassengerViewModel(
     }
 
     fun onClickVisaCopy() {
-        flightEventManager.uploadVisaCopy()
+        //flightEventManager.uploadVisaCopy()
         if (visaProgress.value == 100) {
             imageUploadChoiceOld.value = Event("visa")
         } else {

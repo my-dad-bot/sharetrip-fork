@@ -55,13 +55,6 @@ object ShareTripAppConstants {
 
     const val CRISP_WEBSITE_ID = "14009585-79af-47ed-ab9a-4b2d8133a3bd"
 
-
-    @JvmStatic
-    @BindingAdapter("imageDrawableId")
-    fun setImageResource(imageView: ImageView, resource: Int) {
-        imageView.setImageResource(resource)
-    }
-
     /** Notification Channel name **/
     const val LOCAL_NOTIFICATION = "local_channel"
 

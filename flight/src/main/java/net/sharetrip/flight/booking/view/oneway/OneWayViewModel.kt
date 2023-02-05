@@ -11,7 +11,7 @@ import net.sharetrip.flight.booking.model.FlightSearch
 import net.sharetrip.flight.booking.model.TravellersInfo
 import net.sharetrip.flight.booking.view.searchairport.SearchAirportFragment
 import net.sharetrip.flight.shared.utils.*
-import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
+//import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
 import net.sharetrip.flight.utils.*
 import timber.log.Timber
 import java.text.ParseException
@@ -19,11 +19,11 @@ import java.util.*
 
 class OneWayViewModel : BaseViewModel() {
 
-    private val eventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val eventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
     private val _navigateToTravelAdvice = MutableLiveData<Event<Boolean>>()
-    private val flightEventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val flightEventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
 
     val navigateToTravelAdvice: LiveData<Event<Boolean>>
         get() = _navigateToTravelAdvice
@@ -119,8 +119,8 @@ class OneWayViewModel : BaseViewModel() {
     }
 
     fun onClickedSearchFlightButton() {
-        eventManager.searchOneWayFlight()
-        flightEventManager.searchOneWayFlight()
+        //eventManager.searchOneWayFlight()
+        //flightEventManager.searchOneWayFlight()
         onSearchFlightClicked.value = Event(true)
     }
 

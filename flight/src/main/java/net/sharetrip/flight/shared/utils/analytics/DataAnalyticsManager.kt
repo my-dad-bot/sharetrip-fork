@@ -1,11 +1,14 @@
+/*
 package net.sharetrip.flight.shared.utils.analytics
 
 import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics
 
+*/
 /*
 todo ->  Please check if Analytics is needed or creates problem for library publication
- */
+ *//*
+
 
 class DataAnalyticsManager(private var firebaseAnalytics: FirebaseAnalytics? = null) {
 
@@ -16,7 +19,8 @@ class DataAnalyticsManager(private var firebaseAnalytics: FirebaseAnalytics? = n
        // fireBaseLogEvent(eventName, properties)
     }
 
-    /*private fun mixPanelLogEvent(eventName: String, properties: Map<String, String>? = null) {
+    */
+/*private fun mixPanelLogEvent(eventName: String, properties: Map<String, String>? = null) {
         if (properties == null) {
             mixPanelAPI?.track(eventName)
         } else {
@@ -26,7 +30,8 @@ class DataAnalyticsManager(private var firebaseAnalytics: FirebaseAnalytics? = n
             }
             mixPanelAPI?.track(eventName, jsonObject)
         }
-    }*/
+    }*//*
+
 
     private fun fireBaseLogEvent(eventName: String, properties: Map<String, String>? = null) {
         val bundle = Bundle()
@@ -37,3 +42,4 @@ class DataAnalyticsManager(private var firebaseAnalytics: FirebaseAnalytics? = n
         firebaseAnalytics?.logEvent(eventName, bundle)
     }
 }
+*/

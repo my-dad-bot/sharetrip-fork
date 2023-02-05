@@ -62,29 +62,11 @@ dependencies {
     project.coroutines()
     project.lifecycle()
     project.navigation()
-    project.firebase()
-    project.facebook()
-    project.playServices()
+    //project.firebase()
     project.converter()
     project.storage()
     project.mixed()
     project.imageLibrary()
-    project.testImplementation()
     project.annotationProcessor()
-    project.workManager()
-    project.crisp()
+    implementation("com.facebook.shimmer:shimmer:0.5.0")
 }
-
-/*afterEvaluate {
-    publishing {
-        publications {
-            register<MavenPublication>("release") {
-                from(components["release"])
-
-                groupId = "com.github.sharetripnet"
-                artifactId = "flight"
-                version = "0.9.28"
-            }
-        }
-    }
-}*/

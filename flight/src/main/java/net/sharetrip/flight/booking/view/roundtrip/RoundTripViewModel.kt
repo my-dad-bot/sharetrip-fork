@@ -12,10 +12,9 @@ import net.sharetrip.flight.booking.model.ChildrenDOB
 import net.sharetrip.flight.booking.model.FlightPromotion
 import net.sharetrip.flight.booking.model.FlightSearch
 import net.sharetrip.flight.booking.model.TravellersInfo
-import net.sharetrip.flight.booking.view.searchairport.SearchAirportFragment
 import net.sharetrip.flight.network.DataManager
 import net.sharetrip.flight.shared.utils.*
-import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
+//import net.sharetrip.flight.shared.utils.analytics.AnalyticsProvider
 import net.sharetrip.flight.utils.*
 import timber.log.Timber
 import java.text.ParseException
@@ -24,8 +23,8 @@ import java.util.*
 class RoundTripViewModel : BaseOperationalViewModel() {
     private val _navigateToTravelAdvice = MutableLiveData<Event<Boolean>>()
     private var oneWayTripSearchModel: FlightSearch = FlightSearch()
-    private val flightEventManager =
-        AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
+    //private val flightEventManager =
+        //AnalyticsProvider.flightEventManager(AnalyticsProvider.getFirebaseAnalytics())
 
     val navigateToTravelAdvice: LiveData<Event<Boolean>>
         get() = _navigateToTravelAdvice
@@ -127,7 +126,7 @@ class RoundTripViewModel : BaseOperationalViewModel() {
     }
 
     fun onSearchFlightButtonClicked() {
-        flightEventManager.searchReturnFlight()
+        //flightEventManager.searchReturnFlight()
         onSearchClicked.value = Event(true)
     }
 
