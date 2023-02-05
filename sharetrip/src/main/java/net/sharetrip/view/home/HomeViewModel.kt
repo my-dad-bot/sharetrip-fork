@@ -12,8 +12,6 @@ import net.sharetrip.shared.utils.RemoteConfigParam
 import com.sharetrip.base.viewmodel.BaseOperationalViewModel
 import net.sharetrip.BuildConfig
 import net.sharetrip.R
-import net.sharetrip.holiday.booking.model.HolidayItem
-import net.sharetrip.holiday.booking.model.HolidayListResponse
 import net.sharetrip.network.MainApiService
 
 class HomeViewModel(
@@ -22,8 +20,8 @@ class HomeViewModel(
     private val sharedPrefsHelper: SharedPrefsHelper
 ) : BaseOperationalViewModel() {
 
-    val holidayList = MutableLiveData<ArrayList<HolidayItem>>()
-    val holidays = ArrayList<HolidayItem>()
+    /*val holidayList = MutableLiveData<ArrayList<HolidayItem>>()
+    val holidays = ArrayList<HolidayItem>()*/
     val navigateToHoliday = MutableLiveData<Event<Boolean>>()
     val gotoFlight = MutableLiveData<Event<Boolean>>()
     val gotoHotel = MutableLiveData<Event<Boolean>>()
@@ -35,17 +33,17 @@ class HomeViewModel(
     var requestCode = 0
 
     init {
-        configRemote()
-        fetchRemoteConfigData()
+        //configRemote()
+        //fetchRemoteConfigData()
         fetchHolidayList()
     }
 
     fun fetchHolidayList() {
-        if (holidays.isEmpty() || holidays.size < count) {
+        /*if (holidays.isEmpty() || holidays.size < count) {
             executeSuspendedCodeBlock(fetchHolidayList) {
                 apiService.fetchPopularHoliday(10, holidays.size)
             }
-        }
+        }*/
     }
 
     fun openHotel() {
@@ -74,8 +72,8 @@ class HomeViewModel(
 
     override fun onSuccessResponse(operationTag: String, data: BaseResponse.Success<Any>) {
         when (operationTag) {
-            fetchHolidayList -> {
-                val response = (data.body as RestResponse<*>).response as HolidayListResponse
+            //fetchHolidayList -> {
+                /*val response = (data.body as RestResponse<*>).response as HolidayListResponse
                 if (response!= null){
                     count = try {
                         response.count
@@ -91,20 +89,20 @@ class HomeViewModel(
                         }
                     }
                     holidayList.value = holidayItemList as ArrayList<HolidayItem>?
-                    holidays.addAll(holidayItemList)
-                }
+                    holidays.addAll(holidayItemList)*/
+                //}
             }
         }
     }
 
-    private fun configRemote() {
+    /*private fun configRemote() {
         val configSettings = FirebaseRemoteConfigSettings.Builder()
             .build()
         remoteConfig.setConfigSettingsAsync(configSettings)
         remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
-    }
+    }*/
 
-    private fun fetchRemoteConfigData() {
+    /*private fun fetchRemoteConfigData() {
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener {
                 if (it.isSuccessful) {
@@ -180,5 +178,5 @@ class HomeViewModel(
 
     private companion object {
         const val fetchHolidayList = "fetch_holiday_list"
-    }
-}
+    }*/
+//}

@@ -40,11 +40,6 @@ import net.sharetrip.R
 import net.sharetrip.databinding.FragmentHomeBinding
 import net.sharetrip.databinding.ItemDashboardHeaderBinding
 import net.sharetrip.flight.booking.FlightBookingActivity
-import net.sharetrip.holiday.booking.HolidayBookingActivity
-import net.sharetrip.holiday.utils.ARG_HOLIDAY_PRODUCT_CODE
-import net.sharetrip.holiday.utils.HOLIDAY_NAVIGATION_ACTION
-import net.sharetrip.holiday.utils.HolidayNavigationActions
-import net.sharetrip.hotel.booking.HotelBookingActivity
 import net.sharetrip.network.MainDataManager
 import net.sharetrip.profile.ProfileActivity
 import net.sharetrip.profile.model.ProfileAction
@@ -54,9 +49,7 @@ import net.sharetrip.tracker.FlightTrackerActivity.Companion.FLIGHT_TRACKER_ACTI
 import net.sharetrip.utils.FlightBookingNotificationManager
 import net.sharetrip.view.dashboard.DashboardActivity
 import net.sharetrip.view.home.adapter.HolidayAdapter
-import net.sharetrip.visa.booking.VisaBookingActivity
-import net.sharetrip.wheel.WheelActivity
-import net.sharetrip.wheel.databinding.GuestUserSpinLayoutBinding
+
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
     val viewModel by lazy {
@@ -144,10 +137,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
             setHasFixedSize(true)
             adapter = holidayAdapter
         }
-        viewModel.holidayList.observe(viewLifecycleOwner) {
+        /*viewModel.holidayList.observe(viewLifecycleOwner) {
             loading = false
             holidayAdapter.update(it)
-        }
+        }*/
 
         ItemClickSupport.addTo(bindingView.holidays)
             .setOnItemClickListener { _, position, _ ->
@@ -155,7 +148,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
                     return@setOnItemClickListener
                 }
                 if (NetworkUtil.hasNetwork(bindingView.holidays.context)) {
-                    val intent = Intent(context, HolidayBookingActivity::class.java)
+                    /*val intent = Intent(context, HolidayBookingActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     intent.putExtra(
                         HOLIDAY_NAVIGATION_ACTION,
@@ -167,7 +160,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
                     )
 
                     homeActionViewModel.homePageEventManager.selectHolidayFromHomeScreen()
-                    startActivity(intent)
+                    startActivity(intent)*/
                 } else
                     Toast.makeText(bindingView.holidays.context, "No Internet", Toast.LENGTH_LONG)
                         .show()
@@ -202,9 +195,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
         })
 
         viewModel.gotoHotel.observe(viewLifecycleOwner, EventObserver {
-            val intent = Intent(context, HotelBookingActivity::class.java)
+            /*val intent = Intent(context, HotelBookingActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
+            startActivity(intent)*/
         })
 
         viewModel.gotoFlight.observe(viewLifecycleOwner, EventObserver {
@@ -215,19 +208,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
         })
 
         viewModel.navigateToHoliday.observe(viewLifecycleOwner, EventObserver {
-            val intent = Intent(context, HolidayBookingActivity::class.java)
+            /*val intent = Intent(context, HolidayBookingActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             intent.putExtra(
                 HOLIDAY_NAVIGATION_ACTION,
                 HolidayNavigationActions.VISIT_HOLIDAY_SEARCH
             )
-            startActivity(intent)
+            startActivity(intent)*/
         })
 
         viewModel.gotoVisa.observe(viewLifecycleOwner, EventObserver {
-            val intent = Intent(context, VisaBookingActivity::class.java)
+            /*val intent = Intent(context, VisaBookingActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
+            startActivity(intent)*/
         })
 
 //        viewModel.gotToTour.observe(viewLifecycleOwner){
@@ -255,11 +248,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
         })
 
         homeActionViewModel.gotoWheelActivity.observe(viewLifecycleOwner, EventObserver {
-            if (it) {
+            /*if (it) {
                 val intent = Intent(context, WheelActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
-            }
+            }*/
         })
 
         homeActionViewModel.gotoFlightTracker.observe(viewLifecycleOwner, EventObserver {
@@ -313,14 +306,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), GuestLoginListener {
     private fun guestLoginDialog(isTreasure: Boolean) {
         loginDialog = Dialog(requireContext(), R.style.MyDynamicDialogTheme)
         loginDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        val dialogBinding = DataBindingUtil.inflate<ViewDataBinding>(
+        /*val dialogBinding = DataBindingUtil.inflate<ViewDataBinding>(
             LayoutInflater.from(context),
             R.layout.guest_user_spin_layout,
             null,
             false
         ) as GuestUserSpinLayoutBinding
         loginDialog.setContentView(dialogBinding.root)
-        dialogBinding.data = if (isTreasure) popupData else popupDataForTrivia
+        dialogBinding.data = if (isTreasure) popupData else popupDataForTrivia*/
         loginDialog.show()
     }
 

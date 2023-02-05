@@ -33,7 +33,7 @@ class BlogCategoryAdapter : RecyclerView.Adapter<BlogCategoryAdapter.BlogCategor
         if (position == 0) {
             holder.bindingView.textViewBlogCategory.setBackgroundResource(R.drawable.top_round_shape)
         } else if (position + 1 == postList.size) {
-            holder.bindingView.textViewBlogCategory.setBackgroundResource(R.drawable.bottom_round_shape_white)
+            holder.bindingView.textViewBlogCategory.setBackgroundResource(R.drawable.top_round_shape)
         }
     }
 

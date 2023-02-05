@@ -2,8 +2,7 @@ package net.sharetrip.network
 
 import com.sharetrip.base.network.model.GenericResponse
 import com.sharetrip.base.network.model.RestResponse
-import net.sharetrip.holiday.booking.model.HolidayCity
-import net.sharetrip.holiday.booking.model.HolidayListResponse
+
 import net.sharetrip.model.*
 import net.sharetrip.shared.model.user.User
 import retrofit2.http.*
@@ -16,12 +15,6 @@ interface MainApiService {
     @POST("https://notifier.sharetrip.net/api/v1/token")
     suspend fun uploadFirebaseToken(@Body fcmTokenModel: FcmTokenModel): GenericResponse<RestResponse<FcmTokenModel>>
 
-    @GET("api/v1/package/list")
-    suspend fun fetchPopularHoliday(@Query("limit") limit: Int, @Query("offset") offset: Int)
-            : GenericResponse<RestResponse<HolidayListResponse>>
-
-    @GET("api/v1/package/city/popular")
-    suspend fun fetchPopularCityForHoliday(): GenericResponse<RestResponse<List<HolidayCity>>>
 
     @GET("api/v1/rewards/earn-coin-treasure-box")
     suspend fun getTreasureResponse(@Header("accesstoken") key: String): GenericResponse<RestResponse<TreasureResponse>>

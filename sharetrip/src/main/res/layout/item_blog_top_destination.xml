@@ -13,7 +13,6 @@
             android:id="@+id/image_view_city"
             android:layout_width="@dimen/city_thumbnail_weight"
             android:layout_height="@dimen/city_thumbnail_height"
-            android:background="@drawable/rounded_image"
             android:scaleType="centerCrop" />
 
         <androidx.appcompat.widget.AppCompatTextView

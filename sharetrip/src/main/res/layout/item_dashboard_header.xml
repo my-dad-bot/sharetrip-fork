@@ -298,7 +298,6 @@
                         android:layout_marginStart="@dimen/spacing_small"
                         android:fontFamily="sans-serif-medium"
                         android:gravity="center_horizontal"
-                        android:text="@string/spin"
                         android:textColor="@color/white"
                         android:textSize="@dimen/font_medium_large" />
 
@@ -307,7 +306,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
                         android:fontFamily="sans-serif-medium"
-                        android:text="@string/to_win"
                         android:textColor="#bdffffff"
                         android:textSize="@dimen/font_normal" />
 

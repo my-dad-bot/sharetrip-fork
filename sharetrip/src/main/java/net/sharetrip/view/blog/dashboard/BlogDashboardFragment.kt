@@ -24,7 +24,6 @@ import com.sharetrip.base.viewmodel.BaseViewModel
 import net.sharetrip.R
 import net.sharetrip.databinding.FragmentBlogDashboardBinding
 import net.sharetrip.flight.booking.FlightBookingActivity
-import net.sharetrip.hotel.booking.HotelBookingActivity
 import net.sharetrip.model.BlogBookingType
 import net.sharetrip.network.MainDataManager
 import net.sharetrip.view.blog.dashboard.adapter.BlogAdapter
@@ -178,9 +177,9 @@ class BlogDashboardFragment : BaseFragment<FragmentBlogDashboardBinding>() {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 startActivity(intent)
             } else if (bookingType == BlogBookingType.BOOKING_HOTEL.bookingName) {
-                val intent = Intent(context, HotelBookingActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                startActivity(intent)
+                //val intent = Intent(context, HotelBookingActivity::class.java)
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                //startActivity(intent)
             }
         } else
             Toast.makeText(

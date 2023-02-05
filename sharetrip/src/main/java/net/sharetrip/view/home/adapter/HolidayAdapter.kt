@@ -17,24 +17,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.holiday.databinding.ItemHolidayBinding
 import com.sharetrip.base.event.EventObserver
 import net.sharetrip.shared.view.adapter.ItemClickSupport
 import net.sharetrip.R
 import net.sharetrip.databinding.ItemDashboardHeaderBinding
-import net.sharetrip.holiday.booking.HolidayBookingActivity
-import net.sharetrip.holiday.booking.model.HolidayCity
-import net.sharetrip.holiday.booking.model.HolidayDiscountType
-import net.sharetrip.holiday.booking.model.HolidayItem
-import net.sharetrip.holiday.utils.ARG_HOLIDAY_CITY_CODE
-import net.sharetrip.holiday.utils.ARG_HOLIDAY_CITY_NAME
-import net.sharetrip.holiday.utils.HOLIDAY_NAVIGATION_ACTION
-import net.sharetrip.holiday.utils.HolidayNavigationActions
-import net.sharetrip.hotel.booking.HotelBookingActivity
+
 import net.sharetrip.view.home.HomeActionsViewModel
 import net.sharetrip.view.home.HomeViewModel
-import net.sharetrip.visa.booking.VisaBookingActivity
-import net.sharetrip.wheel.WheelActivity
+
 import java.text.NumberFormat
 import java.util.*
 
@@ -43,18 +33,18 @@ class HolidayAdapter(
     private val homeViewModel: HomeViewModel
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val holidayList = ArrayList<HolidayItem>()
+    //private val holidayList = ArrayList<HolidayItem>()
 
     init {
-        holidayList.add(HolidayItem())
+        //holidayList.add(HolidayItem())
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == VIEW_TYPE_ITEM) {
-            val binding = DataBindingUtil.inflate<ItemHolidayBinding>(
+            /*val binding = DataBindingUtil.inflate<ItemHolidayBinding>(
                 LayoutInflater.from(parent.context), R.layout.item_holiday, parent, false
             )
-            return HolidayViewHolder(binding)
+            return HolidayViewHolder(binding)*/
         }
 
         val binding = DataBindingUtil.inflate<ItemDashboardHeaderBinding>(
@@ -63,13 +53,13 @@ class HolidayAdapter(
         return DashboardHeaderViewHolder(binding)
     }
 
-    override fun getItemCount() = holidayList.size
+    override fun getItemCount() = 0
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (position == 0) {
             (holder as DashboardHeaderViewHolder).dataBind(dashBoardViewModel)
         } else {
-            (holder as HolidayViewHolder).bind(holidayList[position])
+            //(holder as HolidayViewHolder).bind(holidayList[position])
         }
     }
 
@@ -80,12 +70,12 @@ class HolidayAdapter(
         return VIEW_TYPE_ITEM
     }
 
-    fun update(holidays: ArrayList<HolidayItem>) {
+    /*fun update(holidays: ArrayList<HolidayItem>) {
         holidayList.addAll(holidays)
         notifyDataSetChanged()
-    }
+    }*/
 
-    inner class HolidayViewHolder(private val holidayBinding: ItemHolidayBinding) :
+    /*inner class HolidayViewHolder(private val holidayBinding: ItemHolidayBinding) :
         RecyclerView.ViewHolder(holidayBinding.root) {
 
         @SuppressLint("SetTextI18n")
@@ -145,7 +135,7 @@ class HolidayAdapter(
                     .into(holidayBinding.imageViewTrip)
             }
         }
-    }
+    }*/
 
     inner class DashboardHeaderViewHolder(private val dashboardHeaderBinding: ItemDashboardHeaderBinding) :
         RecyclerView.ViewHolder(dashboardHeaderBinding.root) {
@@ -177,22 +167,22 @@ class HolidayAdapter(
             dashboardHeaderBinding.cities.setHasFixedSize(true)
             dashboardHeaderBinding.cities.adapter = cityAdapter
 
-            viewModel.popularCity.observeForever {
+            /*viewModel.popularCity.observeForever {
                 cityAdapter.update(it as ArrayList<HolidayCity>)
-            }
+            }*/
 
             viewModel.openFlight.observeForever(EventObserver {
                 homeViewModel.openFlight()
             })
 
             viewModel.gotoVisa.observeForever(EventObserver {
-                val context = dashboardHeaderBinding.visaButton.context
+                /*val context = dashboardHeaderBinding.visaButton.context
                 val intent = Intent(context, VisaBookingActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                context.startActivity(intent)
+                context.startActivity(intent)*/
             })
 
-            viewModel.gotoHoliday.observeForever(EventObserver {
+            /*viewModel.gotoHoliday.observeForever(EventObserver {
                 val context = dashboardHeaderBinding.hotelsButton.context
                 val intent = Intent(context, HolidayBookingActivity::class.java)
                 when (it) {
@@ -222,7 +212,7 @@ class HolidayAdapter(
                 val intent = Intent(context, HotelBookingActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 context.startActivity(intent)
-            })
+            })*/
 
             viewModel.gotoBusBooking.observeForever(EventObserver {
                 val context = dashboardHeaderBinding.visaButton.context
@@ -231,12 +221,12 @@ class HolidayAdapter(
 //                context.startActivity(intent)
             })
 
-            viewModel.gotoWheelActivity.observeForever(EventObserver {
+           /* viewModel.gotoWheelActivity.observeForever(EventObserver {
                 val context = dashboardHeaderBinding.hotelsButton.context
                 val intent = Intent(context, WheelActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 context.startActivity(intent)
-            })
+            })*/
 
 //            viewModel.navigateToTour.observeForever {
 //                val context = dashboardHeaderBinding.hotelsButton.context

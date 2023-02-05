@@ -9,12 +9,9 @@ import com.sharetrip.base.viewmodel.BaseViewModel
 import net.sharetrip.R
 import net.sharetrip.databinding.FragmentBookingBinding
 import net.sharetrip.flight.history.FlightHistoryActivity
-import net.sharetrip.holiday.history.HolidayHistoryActivity
-import net.sharetrip.hotel.history.HotelHistoryActivity
 import net.sharetrip.network.MainDataManager
 import net.sharetrip.signup.view.RegistrationActivity
 import net.sharetrip.view.dashboard.DashboardActivity
-import net.sharetrip.visa.history.VisaHistoryActivity
 import java.text.NumberFormat
 import java.util.*
 
@@ -32,7 +29,7 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>() {
 
     override fun initOnCreateView() {
         bindingView.viewModel = viewModel
-        bindingView.guestLayout.data = viewModel.popupData
+        //bindingView.guestLayout.data = viewModel.popupData
 
 //        viewModel.navigateToTourHistory.observe(viewLifecycleOwner, EventObserver{
 //            val intent = Intent(requireContext(), TourHistoryActivity::class.java)
@@ -45,13 +42,13 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>() {
         })
 
         viewModel.navigateToHoliday.observe(viewLifecycleOwner, EventObserver {
-            val intent = Intent(requireContext(), HolidayHistoryActivity::class.java)
-            startActivity(intent)
+            /*val intent = Intent(requireContext(), HolidayHistoryActivity::class.java)
+            startActivity(intent)*/
         })
 
         viewModel.gotoFlightHotelHistory.observe(viewLifecycleOwner, EventObserver {
-            val intent = Intent(requireContext(), HotelHistoryActivity::class.java)
-            startActivity(intent)
+            /*val intent = Intent(requireContext(), HotelHistoryActivity::class.java)
+            startActivity(intent)*/
         })
 
         viewModel.gotoBusHistory.observe(viewLifecycleOwner, EventObserver {
@@ -60,8 +57,8 @@ class BookingFragment : BaseFragment<FragmentBookingBinding>() {
         })
 
         viewModel.gotoVisaHistory.observe(viewLifecycleOwner, EventObserver {
-            val intent = Intent(requireContext(), VisaHistoryActivity::class.java)
-            startActivity(intent)
+            /*val intent = Intent(requireContext(), VisaHistoryActivity::class.java)
+            startActivity(intent)*/
         })
 
         var points = SharedPrefsHelper(requireContext())[PrefKey.USER_TRIP_COIN, ""]

@@ -18,6 +18,6 @@ plugins {
     id("com.google.firebase.firebase-perf") version "1.4.2" apply false
 }
 
-/*tasks.register("clean", Delete::class) {
+tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
-}*/
+}

@@ -30,8 +30,6 @@ import com.sharetrip.base.network.model.RestResponse
 import net.sharetrip.shared.utils.analytics.AnalyticsProvider
 import com.sharetrip.base.viewmodel.BaseOperationalViewModel
 import net.sharetrip.R
-import net.sharetrip.holiday.booking.model.HolidayCity
-import net.sharetrip.holiday.utils.HolidayNavigationActions
 import net.sharetrip.model.TreasureResponse
 import net.sharetrip.network.MainApiService
 import java.io.FileDescriptor
@@ -52,7 +50,6 @@ class HomeActionsViewModel(
     private var oldPoint = 0
     private var newPoint = 0
 
-    val gotoHoliday = MutableLiveData<Event<HolidayNavigationActions>>()
     var holidayCityName: String = ""
     var holidayCityCode: String = ""
     val gotoHotel = MutableLiveData<Event<Boolean>>()
@@ -60,7 +57,6 @@ class HomeActionsViewModel(
     val gotoBusBooking = MutableLiveData<Event<Boolean>>()
     val gotoWheelActivity = MutableLiveData<Event<Boolean>>()
     val gotoFlightTracker = MutableLiveData<Event<Boolean>>()
-    val popularCity = MutableLiveData<List<HolidayCity>>()
     val openFlight = MutableLiveData<Event<Boolean>>()
     val isInternetAvailable = MutableLiveData<Boolean>()
     val timerInfo = ObservableField<String>()
@@ -89,10 +85,10 @@ class HomeActionsViewModel(
     }
 
     private fun fetchPopularCity() {
-        executeSuspendedCodeBlock(
+        /*executeSuspendedCodeBlock(
             operationTag = fetchHolidayList,
             codeBlock = { apiService.fetchPopularCityForHoliday() }
-        )
+        )*/
     }
 
     private fun fetchTreasure(accessToken: String) {
@@ -127,9 +123,9 @@ class HomeActionsViewModel(
 
     fun openHoliday() {
         homePageEventManager.clickOnHoliday()
-        checkNetworkAndExecuteTask {
+        /*checkNetworkAndExecuteTask {
             gotoHoliday.value = Event(HolidayNavigationActions.VISIT_HOLIDAY_SEARCH)
-        }
+        }*/
     }
 
     fun openTransport() {
@@ -155,18 +151,18 @@ class HomeActionsViewModel(
 
     fun navigateToHoliday() {
         homePageEventManager.selectHolidayPCityFromHomeScreen()
-        checkNetworkAndExecuteTask {
+        /*checkNetworkAndExecuteTask {
             gotoHoliday.value = Event(HolidayNavigationActions.VISIT_HOLIDAY_SEARCH)
-        }
+        }*/
     }
 
     fun navigateToHolidayList(position: Int) {
         homePageEventManager.selectHolidayPCityFromHomeScreen()
-        checkNetworkAndExecuteTask {
+        /*checkNetworkAndExecuteTask {
             holidayCityName = popularCity.value!![position].name
             holidayCityCode = popularCity.value!![position].code
             gotoHoliday.value = Event(HolidayNavigationActions.VISIT_HOLIDAY_LIST)
-        }
+        }*/
     }
 
     fun clickOnCoinBox() {
@@ -275,10 +271,10 @@ class HomeActionsViewModel(
     override fun onSuccessResponse(operationTag: String, data: BaseResponse.Success<Any>) {
         when (operationTag) {
             fetchHolidayList -> {
-                val response = (data.body as RestResponse<*>).response as List<HolidayCity>
+                /*val response = (data.body as RestResponse<*>).response as List<HolidayCity>
                 if (!response.isNullOrEmpty()) {
                     popularCity.value = response
-                }
+                }*/
             }
             fetchTreasure -> {
                 processTreasureResponse(data.body as RestResponse<TreasureResponse>)
@@ -311,7 +307,7 @@ class HomeActionsViewModel(
 
     @SuppressLint("RestrictedApi")
     fun runParticleAnimation(activity: Activity, startView: View) {
-        ParticleSystem(
+        /*ParticleSystem(
             activity,
             120,
             AppCompatDrawableManager.get()
@@ -320,7 +316,7 @@ class HomeActionsViewModel(
         )
             .setSpeedModuleAndAngleRange(0.1f, 0.5f, 180, 360)
             .setRotationSpeed(144f)
-            .oneShot(startView, 120)
+            .oneShot(startView, 120)*/
     }
 
     fun animateCoin(view: AppCompatTextView) {
