@@ -70,3 +70,17 @@ dependencies {
     project.annotationProcessor()
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.jubayar"
+                artifactId = "flight"
+                version = "0.9.1"
+            }
+        }
+    }
+}
