@@ -55,13 +55,31 @@ dependencies {
     implementation(project(":base"))
     implementation(project(":payment"))
 
+    //project.core()
+    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.appcompat:appcompat:1.6.0")
 
-    project.core()
-    project.coroutines()
-    project.retrofit()
+    //project.retrofit()
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
-    project.lifecycle()
-    project.navigation()
+    //project.navigation()
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
+
+    //project.coroutines()
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    //project.lifecycle()
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+
+    //project.core()
+    //project.coroutines()
+    //project.retrofit()
+
+    //project.lifecycle()
+    //project.navigation()
 
     project.converter()
     project.storage()
