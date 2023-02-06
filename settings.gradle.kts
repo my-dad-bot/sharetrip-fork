@@ -26,11 +26,5 @@ rootProject.name = "sharetrip"
 
 include(":base")
 include(":flight")
-//include(":bus")
-//include(":profile")
-//include(":tracker")
-//include(":signup")
 include(":payment")
-//include(":tour")
-//include(":shared")
 include(":newapp")
