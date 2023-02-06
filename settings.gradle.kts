@@ -12,10 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
         jcenter()
         maven {
-            url = uri("http://dl.bintray.com/piasy/maven")
-            isAllowInsecureProtocol = true
-        }
-        maven {
             url = uri("https://jitpack.io")
         }
     }

@@ -89,7 +89,7 @@ dependencies {
     implementation("androidx.paging:paging-runtime:3.1.1")
     implementation("com.eightbitlab:blurview:1.6.6")
     implementation("io.github.luizgrp.sectionedrecyclerviewadapter:sectionedrecyclerviewadapter:3.2.0")
-    implementation("com.github.piasy:BigImageViewer:1.7.1")
+    //implementation("com.github.piasy:BigImageViewer:1.7.1")
     implementation ("androidx.multidex:multidex:2.0.1")
     implementation("com.pacioianu.david:ink-page-indicator:1.3.0")
     implementation("com.squareup:android-times-square:1.7.10")
@@ -118,7 +118,7 @@ afterEvaluate {
 
                 groupId = "com.github.jubayar"
                 artifactId = "flight"
-                version = "0.9.3"
+                version = "0.9.4"
             }
         }
     }
