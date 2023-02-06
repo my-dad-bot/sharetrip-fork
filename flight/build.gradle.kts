@@ -110,7 +110,7 @@ dependencies {
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 }
 
-/*afterEvaluate {
+afterEvaluate {
     publishing {
         publications {
             register<MavenPublication>("release") {
@@ -122,4 +122,4 @@ dependencies {
             }
         }
     }
-}*/
+}

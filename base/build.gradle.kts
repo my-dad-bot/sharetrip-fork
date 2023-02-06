@@ -1,5 +1,4 @@
 plugins {
-    id("maven-publish")
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
 }
@@ -65,18 +64,4 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     //implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1")
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            register<MavenPublication>("release") {
-                from(components["release"])
-
-                groupId = "com.github.jubayar"
-                artifactId = "base"
-                version = "0.9.5"
-            }
-        }
-    }
 }

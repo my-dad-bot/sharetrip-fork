@@ -10,6 +10,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        jcenter()
         maven {
             url = uri("https://jitpack.io")
         }
@@ -20,6 +21,6 @@ dependencyResolutionManagement {
 rootProject.name = "sharetrip"
 
 include(":base")
-//include(":flight")
+include(":flight")
 include(":payment")
 include(":newapp")
