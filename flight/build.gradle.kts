@@ -54,15 +54,15 @@ android {
 dependencies {
     implementation(project(":base"))
     implementation(project(":payment"))
-    //implementation(project(":tracker"))
-    //implementation(project(":signup"))
 
-    project.retrofit()
+
     project.core()
     project.coroutines()
+    project.retrofit()
+
     project.lifecycle()
     project.navigation()
-    //project.firebase()
+
     project.converter()
     project.storage()
     project.mixed()
