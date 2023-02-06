@@ -79,7 +79,7 @@ afterEvaluate {
 
                 groupId = "com.github.jubayar"
                 artifactId = "flight"
-                version = "0.9.1"
+                version = "0.9.2"
             }
         }
     }
