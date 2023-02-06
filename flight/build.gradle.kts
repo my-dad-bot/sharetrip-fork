@@ -74,18 +74,17 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 
-    //project.core()
-    //project.coroutines()
-    //project.retrofit()
+    //project.converter()
+    implementation("com.google.code.gson:gson:2.10")
 
-    //project.lifecycle()
-    //project.navigation()
-
-    project.converter()
     project.storage()
     project.mixed()
     project.imageLibrary()
+
     project.annotationProcessor()
+    //implementation("com.github.bumptech.glide:compiler:4.14.2")
+    //implementation("androidx.room:room-compiler:2.4.3")
+
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 }
 
