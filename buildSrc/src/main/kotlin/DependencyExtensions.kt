@@ -6,7 +6,7 @@ import org.gradle.kotlin.dsl.kotlin
 
 fun Project.core() {
     dependencies {
-        add("implementation", Libs.kotlin_stdlib_jdk8)
+        //add("implementation", Libs.kotlin_stdlib_jdk8)
         add("implementation", Libs.androidx_core_ktx)
         add("implementation", Libs.androidx_appcompat)
         add("implementation", Libs.androidx_constraintlayout)
