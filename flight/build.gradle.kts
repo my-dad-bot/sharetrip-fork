@@ -77,13 +77,18 @@ dependencies {
     //project.converter()
     implementation("com.google.code.gson:gson:2.10")
 
-    project.storage()
-    project.mixed()
-    project.imageLibrary()
+    //project.storage()
+    implementation("androidx.room:room-runtime:2.4.3")
+    implementation("androidx.room:room-ktx:2.4.3")
 
-    project.annotationProcessor()
-    //implementation("com.github.bumptech.glide:compiler:4.14.2")
-    //implementation("androidx.room:room-compiler:2.4.3")
+    project.mixed()
+
+    //project.imageLibrary()
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+
+    //project.annotationProcessor()
+    kapt("com.github.bumptech.glide:compiler:4.14.2")
+    kapt("androidx.room:room-compiler:2.4.3")
 
     implementation("com.facebook.shimmer:shimmer:0.5.0")
 }
